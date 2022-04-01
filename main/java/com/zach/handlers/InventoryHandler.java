@@ -51,7 +51,7 @@ public class InventoryHandler {
         //looping through the amount of chest grabbed from the PrisonCell
         for (int i = 0; i <= getCellChestsAmount(); i++) {
             //loop through the all the locations available to place a chest at
-            auctionHouseLocations(i, auctionHouseChest);
+            auctionHouseChestData(i, auctionHouseChest);
             if (i > AuctionHouse.getInstance().creationListener.saveChestData.size())
                 break;
         }
@@ -62,12 +62,12 @@ public class InventoryHandler {
         //looping through the amount of large chest grabbed from the PrisonCell and dividing the amount of chest in half due to being two chest
         for (int i = 0; i <= getLargeCellChestAmount() / 2; i++) {
             //looping through all the locations available to place a chest at
-            auctionHouseLocations(i, largeAuctionHouseChest);
+            auctionHouseChestData(i, largeAuctionHouseChest);
         }
         setLargeCellChestContents();
     }
 
-    private void auctionHouseLocations(int i, List<Chest> AuctionHouseChest) {
+    private void auctionHouseChestData(int i, List<Chest> AuctionHouseChest) {
         //loop through the all the locations available to place a chest at and looping through the direction strings
         for (Map.Entry<Location, String> location : AuctionHouse.getInstance().creationListener.saveChestData.entrySet()) {
             //if the amount of chest in the auction house < then the amount of cell chest
@@ -82,7 +82,7 @@ public class InventoryHandler {
                     direction.setFacing(BlockFace.valueOf(location.getValue().toUpperCase()));
                     block.setBlockData(direction);
 
-                    CMIHologram holo = new CMIHologram(String.valueOf(location.getKey()), location.getKey());
+                    CMIHologram holo = new CMIHologram(String.valueOf(location.getKey()), location.getKey().add(0.5, 1.5, 0.5));
                     holo.setLines(Arrays.asList("test", "test"));
                     CMI.getInstance().getHologramManager().addHologram(holo);
                     holo.update();
