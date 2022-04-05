@@ -3,6 +3,7 @@ package com.zach.listeners;
 import com.zach.AuctionHouse;
 import net.alex9849.arm.events.RestoreRegionEvent;
 import org.bukkit.Material;
+import org.bukkit.block.Barrel;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.event.EventHandler;
@@ -30,11 +31,21 @@ public class CellResetListener implements Listener {
                             }
                         }
                     }
+                    if (block.getType().equals(Material.BARREL)) {
+                        Barrel barrel = (Barrel) block.getState();
+                        if (!barrel.getInventory().isEmpty()) {
+                            if (barrel.getInventory().getSize() <= 27) {
+                                //adding all barrels into a list
+                                AuctionHouse.getInstance().inventoryHandler.addCellBarrels(barrel);
+                            }
+                        }
+                    }
                 }
             }
         }
         AuctionHouse.getInstance().inventoryHandler.createLargeAuctionHouseChest();
         AuctionHouse.getInstance().inventoryHandler.createAuctionHouseChest();
+        AuctionHouse.getInstance().inventoryHandler.createBarrelAuctionHouseChest();
 
     }
 
