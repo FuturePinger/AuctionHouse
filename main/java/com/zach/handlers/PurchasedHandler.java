@@ -29,7 +29,7 @@ public class PurchasedHandler {
 
     public Map<Player, Location> playersBoughtChest = new HashMap<>();
 
-    public void buyChest(Location location, Player player, Double amount) {
+    private void buyChest(Location location, Player player, Double amount) {
         if (EconomyHandler.hasEnoughMoney(player, location)) {
             EconomyHandler.withDrawMoney(player, amount);
             playersBoughtChest.put(player, location);
@@ -44,7 +44,7 @@ public class PurchasedHandler {
             player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
         }
     }
-    public final void resetChestDataTimer(Player player, Location location) {
+    private void resetChestDataTimer(Player player, Location location) {
         final int[] countdown = {PrisonAuctionHouse.getInstance().configManager.getTimeTillExpire()};
         (new BukkitRunnable() {
             public void run() {
@@ -72,7 +72,7 @@ public class PurchasedHandler {
         playersBoughtChest.clear();
     }
 
-    public void resetChestData(Player player) {
+    private void resetChestData(Player player) {
         CMI.getInstance().getHologramManager().getByName(playersBoughtChest.get(player).getBlock().getLocation().toString()).remove();
         playersBoughtChest.get(player).getBlock().setType(Material.AIR);
         playersBoughtChest.remove(player);

@@ -101,7 +101,7 @@ public class CreationListener implements Listener {
         }
     }
 
-    public void cancelCreation(Player player, String string) {
+    private void cancelCreation(Player player, String string) {
         player.sendMessage(string);
         isCreating.remove(player);
         chestLocationNames.clear();

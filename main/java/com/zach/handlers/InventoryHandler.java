@@ -31,19 +31,19 @@ public class InventoryHandler {
     public void addCellBarrels(Barrel barrel) {
         cellBarrels.add(barrel);
     }
-    public Integer getCellBarrelsAmount() { return cellBarrels.size(); }
+    private Integer getCellBarrelsAmount() { return cellBarrels.size(); }
 
-    public Barrel getCellBarrel(Integer integer) { return cellBarrels.get(integer); }
+    private Barrel getCellBarrel(Integer integer) { return cellBarrels.get(integer); }
 
     public void addLargeCellChest(Chest chest) {
         largeCellChest.add(chest);
     }
 
-    public Integer getLargeCellChestAmount() {
+    private Integer getLargeCellChestAmount() {
         return largeCellChest.size();
     }
 
-    public Chest getLargeCellChest(Integer integer) {
+    private Chest getLargeCellChest(Integer integer) {
         return largeCellChest.get(integer);
     }
 
@@ -51,11 +51,11 @@ public class InventoryHandler {
         cellChests.add(chest);
     }
 
-    public Integer getCellChestsAmount() {
+    private Integer getCellChestsAmount() {
         return cellChests.size();
     }
 
-    public Chest getCellChest(Integer integer) {
+    private Chest getCellChest(Integer integer) {
         return cellChests.get(integer);
     }
 

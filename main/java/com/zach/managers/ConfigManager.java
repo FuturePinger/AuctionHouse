@@ -5,7 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class ConfigManager {
 
-    public static FileConfiguration config;
+    private static FileConfiguration config;
 
     public static void setupConfig(PrisonAuctionHouse auctionHouse) {
         ConfigManager.config = auctionHouse.getConfig();

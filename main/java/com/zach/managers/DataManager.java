@@ -16,9 +16,9 @@ public class DataManager {
     static File chestFolder;
     static FileConfiguration config;
 
-    public FileConfiguration getConfig() { return config; }
+    private FileConfiguration getConfig() { return config; }
 
-    public void save() {
+    private void save() {
         try {
             config.save(chestLocationsFile);
         } catch (Exception e) {
