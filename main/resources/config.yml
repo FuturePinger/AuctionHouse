@@ -1,2 +1,5 @@
+#The min and max price the chest will cost. It will pick a random number between those two numbers!
 min-price: 500
 max-price: 3000
+#This is how long the chest will last after a player bought a chest. (In seconds)
+time-till-expire: 45
