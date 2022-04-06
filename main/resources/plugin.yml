@@ -1,0 +1,12 @@
+name: PrisonAuctionHouse
+version: '${project.version}'
+main: com.zach.PrisonAuctionHouse
+api-version: 1.18
+depend:
+  - CMI
+  - Vault
+  - AdvancedRegionMarket
+commands:
+  auctionhouse:
+    aliases:
+      - pe-ah
