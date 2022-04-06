@@ -29,6 +29,7 @@ public final class PrisonAuctionHouse extends JavaPlugin {
 
     private static Economy economy = null;
     public DataManager dataManager;
+    public ConfigManager configManager;
     static MenuHandler menuHandler;
     public InventoryBuyButton inventoryBuyButton;
     public InventoryCancelButton inventoryCancelButton;
@@ -47,6 +48,7 @@ public final class PrisonAuctionHouse extends JavaPlugin {
         instance = this;
         menuHandler = new MenuHandler();
         this.dataManager = new DataManager();
+        this.configManager = new ConfigManager();
         this.inventoryBuyButton = new InventoryBuyButton();
         this.inventoryCancelButton = new InventoryCancelButton();
         this.inventoryPlaceHolder = new InventoryPlaceHolder();

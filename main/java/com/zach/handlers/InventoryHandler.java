@@ -3,7 +3,6 @@ package com.zach.handlers;
 import com.Zrips.CMI.CMI;
 import com.Zrips.CMI.Modules.Holograms.CMIHologram;
 import com.zach.PrisonAuctionHouse;
-import com.zach.managers.ConfigManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -142,7 +141,9 @@ public class InventoryHandler {
                 if (location.getKey().getBlock().isEmpty()) {
 
                     Random random = new Random();
-                    Integer randomInt = random.nextInt((ConfigManager.getMaxPrice()- ConfigManager.getMinPrice()) + 1) + ConfigManager.getMinPrice();
+                    Integer randomInt = random.nextInt((PrisonAuctionHouse.getInstance().configManager.getMaxPrice() -
+                            PrisonAuctionHouse.getInstance().configManager.getMinPrice()) + 1) +
+                            PrisonAuctionHouse.getInstance().configManager.getMinPrice();
 
                     Block block = location.getKey().getBlock();
                     block.setType(Material.CHEST);

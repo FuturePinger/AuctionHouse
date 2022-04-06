@@ -30,7 +30,6 @@ public class CreationListener implements Listener {
     public List<String> savedChestLocationNames = new ArrayList<>();
 
 
-
     @EventHandler
     public void blockSelection(PlayerInteractEvent e) {
 
@@ -77,6 +76,7 @@ public class CreationListener implements Listener {
             }
         }
     }
+
     @EventHandler
     public void directionStage(AsyncPlayerChatEvent e) {
         Player player = e.getPlayer();
@@ -84,7 +84,7 @@ public class CreationListener implements Listener {
             if (!isCreating.contains(player)) {
                 if (isCreatingDirection.contains(player)) {
                     if (e.getMessage().equals("exit")) {
-                        cancelCreation(player, color("&bAuction&8-&6House &8// &7Creation canceled"));
+                        cancelCreation(player, color("&bAuction&8-&6House &8// &7Creation canceled!"));
                         e.setCancelled(true);
                     } else switch (e.getMessage()) {
                         case "NORTH", "EAST", "WEST", "SOUTH" -> {
@@ -94,13 +94,13 @@ public class CreationListener implements Listener {
                             e.setCancelled(true);
                             PrisonAuctionHouse.getInstance().dataManager.loadChestDataConfig();
                         }
-                        default -> player.sendMessage(color("&bAuction&8-&6House &8// &7Incorrect input. (NORTH, EAST, WEST, SOUTH) Type 'exit' to cancel!"));
                     }
                     e.setCancelled(true);
                 }
             }
         }
     }
+
     public void cancelCreation(Player player, String string) {
         player.sendMessage(string);
         isCreating.remove(player);

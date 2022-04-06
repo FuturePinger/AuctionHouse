@@ -11,6 +11,7 @@ public class ConfigManager {
         ConfigManager.config = auctionHouse.getConfig();
         auctionHouse.saveDefaultConfig();
     }
-    public static Integer getMinPrice() { return config.getInt("min-price"); }
-    public static Integer getMaxPrice() { return config.getInt("max-price"); }
+    public Integer getMinPrice() { return config.getInt("min-price"); }
+    public Integer getMaxPrice() { return config.getInt("max-price"); }
+    public Integer getTimeTillExpire() { return config.getInt("time-till-expire"); }
 }
